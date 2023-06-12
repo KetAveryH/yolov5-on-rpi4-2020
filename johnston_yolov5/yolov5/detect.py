@@ -53,11 +53,7 @@ from utils.torch_utils import select_device, smart_inference_mode
 @smart_inference_mode()
 def run(
         weights=ROOT / 'yolov5s.pt',  # model path or triton URL
-<<<<<<< HEAD
-        source=ROOT / 'data/images',  # file/dir/URL/glob/screen/0(webcam)
-=======
         source=ROOT / 'images',  # file/dir/URL/glob/screen/0(webcam)
->>>>>>> d0cedbee87b3ffe0fe710d67799b0550b49667ed
         data=ROOT / 'data/coco128.yaml',  # dataset.yaml path
         imgsz=(640, 640),  # inference size (height, width)
         conf_thres=0.25,  # confidence threshold
