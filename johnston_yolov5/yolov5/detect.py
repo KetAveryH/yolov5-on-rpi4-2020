@@ -183,6 +183,7 @@ def run(
                     cv2.resizeWindow(str(p), im0.shape[1], im0.shape[0])
                 cv2.imshow(str(p), im0)
                 cv2.waitKey(1)  # 1 millisecond
+                count+=1
 
             # Save results (image with detections)
             if save_img:
@@ -205,6 +206,11 @@ def run(
 
         # Print time (inference-only)
         LOGGER.info(f"{s}{'' if len(det) else '(no detections), '}{dt[1].dt * 1E3:.1f}ms")
+        print(seen)
+        print(view_img)
+
+        if seen >= 200: #caps max frames for when we are reading from a camera
+            break
 
     # Print results
     t = tuple(x.t / seen * 1E3 for x in dt)  # speeds per image
